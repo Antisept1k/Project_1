@@ -38,11 +38,11 @@ public class Service {
     private static Client buildNewClient(String email,String firstName,String lastName) {
         Client client = new Client();
 
-        email = client.getEmail();
+        client.setEmail(email);
 
-        firstName = client.getFirstName();
+        client.setFirstName(firstName);
 
-        lastName = client.getLastName();
+        client.setLastName(lastName) ;
 
         return client;
 
