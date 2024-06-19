@@ -1,5 +1,7 @@
 package Project.Model;
 
+import java.util.Objects;
+
 public class Client {
     private String FirstName;
     private String LastName;
@@ -32,4 +34,28 @@ public class Client {
     public void setPet(Pet pet) {
         this.pet = pet;
     }
+    public String toString(){
+        return "client {" +
+                "\n\t first name ="+ FirstName +
+                ", last name ="+ LastName +
+                ", email "+Email +
+                ",\n\t pet = "+pet+"}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(FirstName, client.FirstName)
+                && Objects.equals(LastName, client.LastName)
+                && Objects.equals(Email, client.Email)
+                && Objects.equals(pet, client.pet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(FirstName, LastName, Email, pet);
+    }
 }
+

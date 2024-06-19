@@ -8,7 +8,8 @@ import Project.Model.Pet;
 
 
 public class ApplicationRunner {
-    private Service service= new Service();
+    private final PetService petService = new PetService();
+    private final Service service= new Service();
     public void run() {
         if (Authenticator.auth()) {
             Client client = service.registerNewClient();
@@ -18,6 +19,7 @@ public class ApplicationRunner {
                 client.setPet(pet);
                 pet.setOwner(client.getFirstName()+" "+ client.getLastName());
                 System.out.println("your pet has been added");
+                System.out.println(client);
 
             }
         }
