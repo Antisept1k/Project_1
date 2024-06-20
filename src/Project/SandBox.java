@@ -1,6 +1,5 @@
 package Project;
 
-import Project.Comparator.Dog_comparator;
 import Project.Model.Dog;
 
 import java.util.Arrays;
@@ -9,18 +8,23 @@ import java.util.Comparator;
 public class SandBox {
     public static void main (String[] args){
         Dog[] dogs = {
-                new Dog(Dog.xS),
-                new Dog(Dog.L),
-                new Dog(Dog.M),
+                new Dog(Dog.Size.XS),
+                new Dog(Dog.Size.L),
+                new Dog(Dog.Size.M),
 
-                new Dog(Dog.xL),
-                new Dog(Dog.S)
+                new Dog(Dog.Size.XL),
+                new Dog(Dog.Size.XXL)
         };
 
-        Arrays.sort(dogs, new Dog_comparator()); {
+        Arrays.sort(dogs, new Comparator<Dog>() {
+            @Override
+            public int compare(Dog dog, Dog dog1) {
+                return dog.getSize().getValue()-dog1.getSize().getValue();
+            }
+        }); {
             for (Dog dog : dogs){
                 System.out.println(dog.getSize());
             }
-        };
+        }
     }
 }
