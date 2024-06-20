@@ -20,7 +20,8 @@ public class Dog extends Pet{
     public String toString(){
         return "Pet = { type: "+ getType() +", sex: "+getSex()+
                 ", age: "+getAge()+", name: "+getName()+
-                ", size: " +size + ", owner: "+getOwner();
+                ", size: " +size + ", owner: "+getOwner()+
+                ", registration time: "+getRegistrationDate().format(formatter);
 
     }
 

@@ -1,13 +1,17 @@
 package Project.Model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public abstract class Pet {
+    public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
     private String type;
     private String sex;
     private int  age;
     private String name;
     private String owner;
+    private final LocalDateTime registrationDate = LocalDateTime.now();
     public void setType(String type1){
         this.type = type1;
     }
@@ -38,8 +42,12 @@ public abstract class Pet {
     public String getOwner(){
        return owner;
     }
+    public LocalDateTime getRegistrationDate(){
+        return registrationDate;
+    }
     public String toString(){
-        return "Pet = { type: "+ type +", sex: "+sex+", age: "+age+", name: "+name+ ", owner: "+owner;
+        return "Pet = { type: "+ type +", sex: "+sex+", age: "+age+
+                ", name: "+name+ ", owner: "+owner +", registration time: "+registrationDate.format(formatter);
     }
 
     @Override

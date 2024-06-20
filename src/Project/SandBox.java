@@ -1,6 +1,7 @@
 package Project;
 
 import Project.Model.Dog;
+import Project.Model.Pet;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -26,5 +27,6 @@ public class SandBox {
                 System.out.println(dog.getSize());
             }
         }
+        System.out.println(new Dog());
     }
 }
