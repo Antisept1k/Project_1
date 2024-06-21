@@ -15,7 +15,7 @@ public class Authenticator {
             }
             System.out.println("access denied, the password was wrong.");
         }
-        System.out.println(PassCheck ? "Welcome to the application" : "aplplication was blocked");
+        System.out.println(PassCheck ? "Welcome to the application" : "application was blocked");
         return PassCheck;
     }
 }

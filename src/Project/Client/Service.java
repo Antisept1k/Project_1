@@ -24,18 +24,23 @@ public class Service {
         System.out.println("Last Name:");
         String lastName = Main.scanner.nextLine();
 
+        System.out.println("Location:");
+        String location = Main.scanner.nextLine();
+
+
         if (isEmailValid(email)&&isLastNameValid(lastName)&&isFirstNameValid(firstName)) {
-            client = buildNewClient(email,firstName,lastName);
+            client = buildNewClient(email,firstName,lastName,location);
 
             System.out.println("New client: " + client.getFirstName() + " " +
-                    client.getLastName() + " (" + client.getEmail() + ")"
+                    client.getLastName() + " (" + client.getEmail() + " (" + client.getLocation() + ")"
                     + " has been added");
         } else {
             System.out.println("Provided Email or First/Last name is invalid");
         }
         return client;
     }
-    private static Client buildNewClient(String email,String firstName,String lastName) {
+    private static Client buildNewClient(String email, String firstName, String lastName, String location) {
+
         Client client = new Client();
 
         client.setEmail(email);
@@ -43,6 +48,8 @@ public class Service {
         client.setFirstName(firstName);
 
         client.setLastName(lastName) ;
+
+        client.setLocation(Client.Location.valueOf(location));
 
         return client;
 

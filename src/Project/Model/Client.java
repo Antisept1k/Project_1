@@ -9,6 +9,7 @@ public class Client {
     private String LastName;
     private String Email;
     private List<Pet> pets = new ArrayList<>();
+    private Location location;
 
     public void setFirstName(String firstName) {
         this.FirstName = firstName;
@@ -29,14 +30,22 @@ public class Client {
     public String getEmail(){
         return Email;
     }
-    public List<Pet> getPet(){
+    public List<Pet> getPets(){
         return pets;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public void addPet(Pet pet){
         pets.add(pet);
     }
-    public void setPet(List<Pet> pets) {
+    public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
     public String toString(){
@@ -44,6 +53,7 @@ public class Client {
                 "\n\t first name ="+ FirstName +
                 ", last name ="+ LastName +
                 ", email "+Email +
+                ", location "+ location +
                 ",\n\t pets = "+pets+"}";
     }
 
@@ -61,6 +71,9 @@ public class Client {
     @Override
     public int hashCode() {
         return Objects.hash(FirstName, LastName, Email, pets);
+    }
+    public enum Location {
+        Kyiv,Lviv,Odessa
     }
 }
 
