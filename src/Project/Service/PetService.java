@@ -1,4 +1,4 @@
-package Project.Client;
+package Project.Service;
 
 import Project.Main;
 import Project.Model.Cat;
@@ -39,7 +39,7 @@ public class PetService {
         if (type.equals(Dog_TYPE)){
             System.out.println("Your dogs size: (XS/S/M/L/XL/XXl)");
             String size =(Main.scanner.nextLine());
-            ((Dog)pet).setSize(Dog.Size.valueOf(size));
+            ((Dog)pet).setSize(Dog.Size.fromString(size));
         }
 
         return pet;

@@ -1,4 +1,4 @@
-package Project.Client;
+package Project.Service;
 
 import Project.Main;
 import Project.Model.Client;
@@ -42,14 +42,22 @@ public class Service {
     private static Client buildNewClient(String email, String firstName, String lastName, String location) {
 
         Client client = new Client();
-
+        Client.Location location1;
         client.setEmail(email);
 
         client.setFirstName(firstName);
 
         client.setLastName(lastName) ;
+        try {
+           location1 = Client.Location.valueOf(location);
 
-        client.setLocation(Client.Location.valueOf(location));
+        }catch (IllegalArgumentException e){
+            System.out.println("Unable to parse value '" + location +
+                    "' using default value " + Client.Location.Unknown);
+            location1 = Client.Location.Unknown;
+
+        }
+        client.setLocation(location1);
 
         return client;
 

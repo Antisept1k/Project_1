@@ -1,7 +1,7 @@
 package Project.Component;
 
-import Project.Client.PetService;
-import Project.Client.Service;
+import Project.Service.PetService;
+import Project.Service.Service;
 import Project.Main;
 import Project.Model.Client;
 import Project.Model.Pet;
@@ -45,17 +45,20 @@ public class EntityRegister {
         List<Client> fromKyiv = new ArrayList<>();
         List<Client> fromLviv = new ArrayList<>();
         List<Client> fromOdessa = new ArrayList<>();
+        List<Client> fromUnknown = new ArrayList<>();
     for(Client client : clients){
         switch (client.getLocation()){
             case Kyiv -> fromKyiv.add(client);
             case Lviv -> fromLviv.add(client);
             case Odessa -> fromOdessa.add(client);
+            case Unknown -> fromUnknown.add(client);
         }
     }
     Map<Client.Location,List<Client>> clientsByLocation = new HashMap<>();
         clientsByLocation.put(Client.Location.Kyiv,fromKyiv);
         clientsByLocation.put(Client.Location.Lviv,fromLviv);
         clientsByLocation.put(Client.Location.Odessa,fromOdessa);
+        clientsByLocation.put(Client.Location.Unknown,fromUnknown);
 
 
         return clientsByLocation;

@@ -73,7 +73,7 @@ public class Client {
         return Objects.hash(FirstName, LastName, Email, pets);
     }
     public enum Location {
-        Kyiv,Lviv,Odessa
+        Kyiv,Lviv,Odessa,Unknown
     }
 }
 
